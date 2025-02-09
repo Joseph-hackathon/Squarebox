@@ -1,6 +1,6 @@
 # Squarebox
 
-[Demo]() | [Video]()
+[Demo](https://squarebox-ten.vercel.app/) | [Video]()
 
 ## Project Description
 
