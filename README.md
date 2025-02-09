@@ -47,20 +47,11 @@ AI Agent Explorer provides the following solutions:
 1. **Autonome**
     - **Trend Analysis and Automation**: Leverages Autonome AI agents to analyze the most searched keywords and news, automatically posting them on social media platforms like Twitter.
     - **Custom Agent Creation**: Deploys search agents tailored to specific topics based on user needs.
-2. **Flow**
-    - **Scalable Blockchain Data Search**: Enables the exploration of smart contracts and NFT data across multiple chains using Flow’s EVM compatibility.
-    - **High-Speed Processing and Scalability**: Improves real-time processing speed for the search engine.
-3. **Lit Protocol**
-    - **Sensitive Data Protection**: Securely manages wallet keys and passwords using Lit Protocol’s key management system.
-    - **User Access Control**: Manages resources and policies that agents can access securely.
-4. **Covalent**
+2. **Covalent**
     - **Data Visualization and Analysis**: Uses Covalent’s AI Agent SDK to help users visualize and analyze Web3 data.
     - **Context-Aware AI**: Understands user search intent and provides tailored results.
-5. **Privy**
-    - **Web2 User Onboarding**: Simplifies platform access for all users with Privy’s social login and email-based wallet creation features.
-    - **Web3 Wallet Integration**: Provides seamless connectivity for existing wallet users.
 
-## Flow Diagram
+## Flow Diagram (Future)
 
 ```mermaid
 sequenceDiagram
@@ -116,22 +107,8 @@ sequenceDiagram
 
 | **Sponsor Track** | **Application in Squarebox** |
 | --- | --- |
-| **Privy** | Handles sign-up, login, and self-custodial wallet generation for all users |
 | **Autonome** | AI Agent processes search queries and enhances Web3 search results |
-| **Flow** | Used for blockchain-related search functionalities |
-| **Lit Protocol** | Ensures secure management of private keys and authentication data |
 | **Covalent** | Retrieves on-chain blockchain data for Web3 search queries |
-
-### Flow
-
-1. **Sign-up & Login (Only Privy)**
-    - **Privy handles authentication** (Email or Wallet-based)
-    - **Generates self-custodial Web3 wallet for new users**
-2. **Search Functionality**
-    - **Web2 Search**: Uses Autonome AI Agent for results
-    - **Web3 Search**: Fetches blockchain data via Covalent SDK
-3. **Security & Data Management**
-    - **Lit Protocol** protects sensitive credentials and API keys
 
 # React + Vite
 
