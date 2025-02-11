@@ -7,10 +7,7 @@ export default function ChatMessage({ message }) {
   return (
     <div className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}>
       {!isUser && <Avatar role="assistant" />}
-      <div className={`max-w-[80%] p-3 rounded-lg ${
-        isUser
-          ? 'bg-[var(--color-primary)]'
-          : 'bg-[var(--color-surface-alt)] border border-[var(--color-surface)] shadow-lg'
+      <div className={`max-w-[80%] p-3 rounded-lg bg-[var(--color-surface-alt)] border border-[var(--color-surface)] shadow-lg
       }`}>
         <p className={`text-[var(--color-text-primary)] ${
           !isUser && 'opacity-90'

@@ -32,39 +32,30 @@ export default function Chat() {
   };
 
   const handleSendMessage = (message) => {
-    // Add user message
-    setMessages(prev => [...prev, {
-      id: Date.now(),
-      content: message,
-      role: 'user'
-    }]);
+    setMessages(prev => [...prev, { id: Date.now(), content: message, role: 'user' }]);
 
-    // Show typing indicator
     setIsTyping(true);
 
-    // Simulate AI response with a delay
     setTimeout(() => {
       const aiResponse = getAIResponse(message);
-      setMessages(prev => [...prev, {
-        id: Date.now(),
-        content: aiResponse,
-        role: 'assistant'
-      }]);
+      setMessages(prev => [...prev, { id: Date.now(), content: aiResponse, role: 'assistant' }]);
       setIsTyping(false);
     }, 1000);
   };
 
   return (
-    <div className="h-full">
-      <MainLayout>
-        <div className="flex flex-col h-full">
-          <div className="flex-1 overflow-y-auto p-4 space-y-4">
-            <ChatHistory messages={messages} />
-            {isTyping && <TypingIndicator />}
-          </div>
+    <MainLayout>
+      <div className="flex flex-col h-[90vh] max-w-3xl w-full mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+
+        <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-gray-100">
+          <ChatHistory messages={messages} />
+          {isTyping && <TypingIndicator />}
+        </div>
+
+        <div className="border-t border-gray-300 bg-white p-4">
           <ChatInput onSendMessage={handleSendMessage} />
         </div>
-      </MainLayout>
-    </div>
+      </div>
+    </MainLayout>
   );
 }
