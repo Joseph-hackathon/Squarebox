@@ -3,11 +3,15 @@ import Chat from './pages/Chat';
 import './App.css';
 import LoginButton from './components/layout/LoginButton';
 import { usePrivy } from '@privy-io/react-auth';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'; 
+
+const queryClient = new QueryClient();
 
 function App() {
   const { authenticated } = usePrivy();
 
   return (
+    <QueryClientProvider client={queryClient}>
     <div className="h-screen flex flex-col items-center justify-center bg-gray-900 text-white">
       {!authenticated ? (
 
@@ -23,6 +27,7 @@ function App() {
         </div>
       )}
     </div>
+    </QueryClientProvider>
   );
 }
 
