@@ -1,120 +1,51 @@
 # Squarebox
 
-[Demo](https://squarebox-ten.vercel.app/) | [Video]()
+[Demo](https://squarebox-ten.vercel.app/) | [Video]() 
 
-## Project Description
+## Overview
+Squarebox is an AI-powered Web3 search engine that enhances blockchain data discovery. It utilizes AI agents to provide curated search results, track trending keywords, and display relevant insights on Twitter. By integrating blockchain data retrieval, NFT search, and personalized token-related updates, Squarebox streamlines Web3 exploration for users.
 
-AI Agent Explorer is a Web3-focused search engine platform that utilizes AI agents to help users explore and analyze blockchain data, smart contracts, NFTs, and the latest Web3 trends.
-The platform personalizes the search experience, processes real-time data, and offers an intuitive interface for both Web2 and Web3 users.
+## Problem Statement 
+Traditional search engines and Web3 platforms do not provide AI-powered assistance for blockchain-related searches. Users must manually navigate multiple services, such as OpenSea for NFTs or Etherscan for transaction history, making Web3 exploration inefficient and fragmented. Additionally, there is no automated way to track and analyze trending search terms within the Web3 space.  
 
-## Problem Statement
-
-1. **Complexity of Web3 Data**
-    - General users face difficulties in exploring blockchain data and Web3 ecosystem information.
-    - Data is scattered across multiple chains, and unified search functionality is lacking.
-2. **Lack of Accessibility for Beginners**
-    - Complicated onboarding processes, wallet creation, and the technological gap between Web2 and Web3 deter many users.
-3. **Security Issues**
-    - Users are exposed to security risks while managing sensitive data.
-
-## Solution
-
-AI Agent Explorer provides the following solutions:
-
-- Real-time Web3 information delivery and user-specific data exploration using AI agents.
-- A user-friendly onboarding environment that integrates Web2 and Web3 seamlessly.
-- Enhanced security for sensitive data through solutions like Lit Protocol.
+## Solution  
+Squarebox leverages AI to recommend blockchain-related content based on user search queries, eliminating the need for manual exploration. The platform also collects and categorizes search terms, identifying trends and displaying the most searched keywords on Twitter through AI agent bots.  
 
 ## Key Features
+✅ **AI-Powered Search & Recommendations**  
+- Uses AI to match user search terms with the most relevant Web3 content.  
+- Provides curated search results for blockchain data, NFT projects, and transaction records.  
 
-1. **AI-Driven Web3 Data Search**
-    - The platform allows real-time exploration and analysis of various Web3 information, such as keywords, smart contracts, and NFTs.
-    - AI agents suggest search results tailored to user intent.
-2. **Personalized Search Experience**
-    - Offers customized search results based on user behavior data.
-    - Utilizes Autonome AI agents to automatically post trending data to social media.
-3. **Integrated Web2 and Web3 Onboarding**
-    - Privy enables wallet creation with just email or social login, allowing users to easily access the Web3 environment.
-4. **Enhanced Security and Data Management**
-    - Lit Protocol ensures secure storage and management of wallet keys and sensitive data.
-5. **Real-Time Data Visualization**
-    - Leverages Covalent to intuitively visualize blockchain data and Web3 trends.
-6. **Scalability and High-Speed Processing**
-    - Utilizes Flow’s high-speed network to process large-scale data in real time.
+✅ **Keyword Trend Analysis**  
+- Stores and categorizes search terms.  
+- Identifies trending keywords and posts them on Twitter via AI agent bots.  
 
-## How Sponsors Are Utilized
+✅ **Blockchain Data Search**  
+- Allows users to look up Ethereum addresses and retrieve transaction history.  
+- Displays wallet activity and contract interactions.  
 
-1. **Autonome**
-    - **Trend Analysis and Automation**: Leverages Autonome AI agents to analyze the most searched keywords and news, automatically posting them on social media platforms like Twitter.
-    - **Custom Agent Creation**: Deploys search agents tailored to specific topics based on user needs.
-2. **Covalent**
-    - **Data Visualization and Analysis**: Uses Covalent’s AI Agent SDK to help users visualize and analyze Web3 data.
-    - **Context-Aware AI**: Understands user search intent and provides tailored results.
+✅ **Integrated NFT & Token Search**  
+- Enables users to search for NFTs across multiple platforms.  
+- Displays sales locations, price history, transaction records, and related Twitter discussions.  
 
-## Flow Diagram (Future)
+✅ **Personalized Twitter Insights**  
+- Displays Twitter posts related to tokens found in the user’s wallet.  
+- Example: If the user holds Arbitrum, the system fetches relevant Arbitrum tweets.  
 
+✅ **Sonic Network Integration**  
+- Optimized for the Sonic Network as part of the Sonic Hackathon.  
+- Enhances data retrieval and search efficiency within Web3.  
+
+## System Architecture Diagram
 ```mermaid
-sequenceDiagram
-    participant User
-    participant Squarebox
-    participant AI_Agent as AI Agent (Autonome)
-    participant Flow as Flow Blockchain
-    participant Lit as Lit Protocol
-    participant Covalent as Covalent SDK
-    participant Privy as Privy Wallet
-
-    %% Sign-up Process %%
-    User ->> Squarebox: Sign Up Request (Email/Web3 Wallet)
-    Squarebox ->> Privy: Authenticate user (Email or Wallet)
-    Privy -->> Squarebox: Return authentication status
-    alt New User
-        Squarebox ->> Privy: Generate self-custodial Web3 wallet
-        Privy -->> Squarebox: Return wallet credentials
-    end
-    Squarebox ->> User: Sign Up Success & Account Created
-
-    %% Login Process %%
-    User ->> Squarebox: Login Request (Email/Web3 Wallet)
-    Squarebox ->> Privy: Authenticate login request
-    Privy -->> Squarebox: Return authentication success
-    Squarebox ->> User: Login Success & Access Granted
-
-    %% Search Functionality %%
-    User ->> Squarebox: Search query input
-    Squarebox ->> AI_Agent: Process search request (Autonome)
-
-    alt Web2 query (general search)
-        AI_Agent ->> Squarebox: Return Web2 search results
-    else Web3 query (blockchain-related)
-        AI_Agent ->> Covalent: Fetch on-chain data (Covalent SDK)
-        Covalent -->> AI_Agent: Return blockchain data
-        AI_Agent ->> Squarebox: Processed blockchain data
-    end
-
-    Squarebox ->> AI_Agent: Generate AI-enhanced results
-    AI_Agent -->> Squarebox: Return AI-processed insights
-
-    Squarebox ->> User: Display final search results
-    User -->> Squarebox: User interacts with results (click, refine search)
-
-    %% Security & Data Management %%
-    Squarebox ->> Lit: Secure key & credentials management (Lit Protocol)
-    Lit -->> Squarebox: Return encrypted credentials
-
+graph TD;
+    User -->|Enters Search Query| Squarebox;
+    Squarebox -->|Processes Query with AI Agent| AI_Agent;
+    AI_Agent -->|Retrieves Data from Blockchain| Flow;
+    AI_Agent -->|Fetches Additional Data| Web3_Sources[NFT Platforms, Transaction APIs];
+    Squarebox -->|Displays Results| User;
+    Squarebox -->|Stores Search Terms| Database;
+    Database -->|Analyzes Trends| AI_Agent;
+    AI_Agent -->|Posts Trending Keywords| Twitter;
 ```
 
-### How Squarebox Utilizes Sponsor Tracks
-
-| **Sponsor Track** | **Application in Squarebox** |
-| --- | --- |
-| **Autonome** | AI Agent processes search queries and enhances Web3 search results |
-| **Covalent** | Retrieves on-chain blockchain data for Web3 search queries |
-
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
