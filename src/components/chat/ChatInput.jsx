@@ -23,7 +23,7 @@ export default function ChatInput({ onSendMessage }) {
         />
         <button
           type="submit"
-          className="button-primary px-4 py-2 rounded-lg"
+          className="px-4 py-2 rounded-lg"
           disabled={!input.trim()}
         >
           Send
